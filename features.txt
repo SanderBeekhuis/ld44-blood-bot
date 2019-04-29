@@ -1,0 +1,15 @@
+
+
+NOT THAT IMPORTANT
+- beter background image (more consistent with the art style, if i can figure out what the artstyle is)
+- Better Music (More industrial?)
+- Splash screen
+- knoback and flash on being hit? Is this a good idea?
+- improve on overblood graphic. I want it to look like a swirling mass of blood drops
+- level up notification (visual)
+- Better death experience. First pause (and maybe gray out) game, before scene change
+- Nice font and text in the game over screen and in the gui
+
+LARGE
+- Keep some of your progress when restarting?
+- Somehow buy upgrades from gatherd blood or something

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://obj/BloodBane.gd" type="Script" id=1]
+[ext_resource path="res://res/bloodbane.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 21.4418
+height = 24.201
+
+[node name="BloodBolt" type="KinematicBody2D"]
+
+z_index = -1
+input_pickable = false
+collision_layer = 2
+collision_mask = 4
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 6, 0 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+

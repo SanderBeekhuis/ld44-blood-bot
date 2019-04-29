@@ -1,0 +1,266 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/Game.gd" type="Script" id=1]
+[ext_resource path="res://src/GUI.gd" type="Script" id=2]
+[ext_resource path="res://music/song_20190429_204043_815.ogg" type="AudioStream" id=3]
+[ext_resource path="res://src/Player.gd" type="Script" id=4]
+[ext_resource path="res://res/player.png" type="Texture" id=5]
+[ext_resource path="res://snd/blood_bolt.wav" type="AudioStream" id=6]
+[ext_resource path="res://snd/blood_bane.wav" type="AudioStream" id=7]
+[ext_resource path="res://obj/BloodDrop.tscn" type="PackedScene" id=8]
+[ext_resource path="res://obj/BasicEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://obj/GunEnemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Spawner.gd" type="Script" id=11]
+[ext_resource path="res://res/background.png" type="Texture" id=12]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 71.0275
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 156.21
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1369.71, -137.013, 0, 0, 0, 0, 1376.56, 1143.86, 0, 0, 0, 0, -132.187, 1146.6, 0, 0, 0, 0, -140.096, -112.379, 0, 0, 0, 0, 1369.71, -137.013 )
+}
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 883.204, 44.9635 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 50.4119, 540.177 )
+
+[node name="Game" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="GUI" type="Control" parent="." index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="GUI" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 122.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Blood Harvested: 0
+Level: 1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GUI" index="1"]
+
+stream = ExtResource( 3 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Player" type="KinematicBody2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 626.811, 513.404 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 61
+collision/safe_margin = 0.08
+script = ExtResource( 4 )
+_sections_unfolded = [ "Collision" ]
+blood_color = Color( 0.5625, 0, 0, 1 )
+over_blood_color = Color( 0.560784, 0, 0, 0.381216 )
+
+[node name="Sprite" type="Sprite" parent="Player" index="0"]
+
+texture = ExtResource( 5 )
+offset = Vector2( -1, 0 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
+
+visible = false
+shape = SubResource( 1 )
+
+[node name="BloodBoltAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" index="2"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="BloodBaneAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" index="3"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Blooddrop" parent="." index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 382, 502 )
+
+[node name="Blooddrop2" parent="." index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 502, 312 )
+
+[node name="Blooddrop3" parent="." index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 502, 682 )
+
+[node name="Blooddrop4" parent="." index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 782, 312 )
+
+[node name="Blooddrop5" parent="." index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 792, 672 )
+
+[node name="Blooddrop6" parent="." index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 882, 482 )
+
+[node name="BasicEnemy" parent="." index="8" instance=ExtResource( 9 )]
+
+position = Vector2( 1400, 470 )
+
+[node name="GunEnemy" parent="." index="9" instance=ExtResource( 10 )]
+
+position = Vector2( -100, 500 )
+HEALTH_PER_LEVEL = 3
+FIRST_TIME_WALK_TIME = 2
+
+[node name="Spawner" type="Path2D" parent="." index="10"]
+
+editor/display_folded = true
+visible = false
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 2 )
+script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+BasicEnemy = ExtResource( 9 )
+GunEnemy = ExtResource( 10 )
+BASE_WAIT_TIME = 4
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Spawner" index="0"]
+
+position = Vector2( 1369.71, -137.013 )
+rotation = 1.56545
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Timer" type="Timer" parent="Spawner" index="1"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = false
+autostart = true
+
+[node name="LevelUp" type="Timer" parent="Spawner" index="2"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = false
+autostart = true
+
+[node name="OuterBounds" type="RigidBody2D" parent="." index="11"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 32
+collision_mask = 3
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OuterBounds" index="0"]
+
+position = Vector2( 630.951, -58.4962 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OuterBounds" index="1"]
+
+position = Vector2( 1341.9, 507.56 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="OuterBounds" index="2"]
+
+position = Vector2( -61.306, 528.127 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OuterBounds" index="3"]
+
+position = Vector2( 645.806, 1083.75 )
+shape = SubResource( 3 )
+
+[node name="Background" type="Sprite" parent="." index="12"]
+
+z_index = -1000
+texture = ExtResource( 12 )
+centered = false
+_sections_unfolded = [ "Offset", "Z Index" ]
+
+[connection signal="attack" from="Player" to="." method="_on_attack"]
+
+[connection signal="level_up" from="Spawner" to="GUI" method="_on_Spawner_level_up"]
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Spawner/LevelUp" to="Spawner" method="_on_LevelUp_timeout"]
+
+

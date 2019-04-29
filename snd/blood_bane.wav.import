@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blood_bane.wav-4386d3a71e11cefdd538648520e40030.sample"
+
+[deps]
+
+source_file="res://snd/blood_bane.wav"
+dest_files=[ "res://.import/blood_bane.wav-4386d3a71e11cefdd538648520e40030.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

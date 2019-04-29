@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blood_bolt.wav-2316a983c1e821a5a089df9b50702e64.sample"
+
+[deps]
+
+source_file="res://snd/blood_bolt.wav"
+dest_files=[ "res://.import/blood_bolt.wav-2316a983c1e821a5a089df9b50702e64.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

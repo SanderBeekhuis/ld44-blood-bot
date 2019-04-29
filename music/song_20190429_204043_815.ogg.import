@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/song_20190429_204043_815.ogg-b63c1b575fd42de39cc5b4b6ffe82342.oggstr"
+
+[deps]
+
+source_file="res://music/song_20190429_204043_815.ogg"
+dest_files=[ "res://.import/song_20190429_204043_815.ogg-b63c1b575fd42de39cc5b4b6ffe82342.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
